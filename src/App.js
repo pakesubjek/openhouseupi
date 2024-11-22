@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import FormOpenHouse from './OpenHouse/FormOpenHouse';
+import ScanOpenHouse from './OpenHouse/ScanOpenHouse';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+          <Routes>
+            <Route path="/" element={<FormOpenHouse />} />
+            <Route path="/qr" element={<ScanOpenHouse />} />
+          </Routes>
+    </Router>
   );
-}
+};
+
+// Home Page Component
+const Home = () => (
+  <div>
+    <h1>Welcome to Open House</h1>
+    <p>Click the link above to access the registration form.</p>
+  </div>
+);
 
 export default App;
